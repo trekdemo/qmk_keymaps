@@ -24,8 +24,11 @@ $(KEYBOARDS):
 	cd qmk_firmware; qmk lint -km $(USER) -kb $(PATH_$@) --strict
 
 	# run build
-	make BUILD_DIR=$(shell pwd)/build -j1 -C qmk_firmware $(PATH_$@):$(USER)
+	make BUILD_DIR=$(shell pwd)/build --jobs=1 --directory=qmk_firmware $(PATH_$@):$(USER)
 
 	# cleanup symlinks
 	rm -rf qmk_firmware/keyboards/$(PATH_$@)/keymaps/$(USER)
 	rm -rf qmk_firmware/users/$(USER)
+
+clean:
+	rm -rf $(shell pwd)/build
