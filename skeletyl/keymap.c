@@ -1,12 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "trekdemo.h"
 
-layer_state_t layer_state_set_user(layer_state_t state) {
-  layer_state_t new_state = update_tri_layer_state(state, _LWR, _RAISE, _ADJUST);
-
-  return new_state;
-}
-
 // Allow the expansion of defined values
 #define LAYOUT_wrapper(...) LAYOUT_split_3x5_3(__VA_ARGS__)
 
@@ -18,7 +12,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_Z      , KC_X      , KC_C      , KC_D      , KC_V,  KC_K    , KC_H      , KC_COMM   , KC_DOT    , KC_SLSH,
                                   _________THUMB_L_________,    _________THUMB_R_________
   ),
-
 
   [_NUM] = LAYOUT_wrapper(
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   KC_PERC, KC_7   , KC_8   , KC_9   , KC_EQL ,
