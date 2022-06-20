@@ -18,6 +18,7 @@
 #define QMK_KEYS_PER_SCAN 4
 
 // Prevent normal rollover on alphas from accidentally triggering mods.
+#undef TAPPING_TERM
 #define TAPPING_TERM 180
 #define IGNORE_MOD_TAP_INTERRUPT
 #undef PERMISSIVE_HOLD

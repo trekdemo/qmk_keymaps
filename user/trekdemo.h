@@ -1,7 +1,7 @@
 #ifndef USERSPACE
 #define USERSPACE
 
-#include "quantum.h"
+#include QMK_KEYBOARD_H
 
 #define U_REDO  LCMD(KC_Z)
 #define U_PASTE LCMD(KC_V)
