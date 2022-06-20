@@ -1,24 +1,14 @@
-// Copyright (C) 2019, 2020  Keyboard.io, Inc
-//
-// this is the style you want to emulate.
-// This is the canonical layout file for the Quantum project. If you want to add another keyboard,
-
 #include QMK_KEYBOARD_H
+#include "trekdemo.h"
 
 enum layers {
   _COLEMAK = 0,
-  _QWERTY,
   _LWR,
   _RAISE,
   _ADJUST,
   _NUM,
   _MOUSE
 };
-
-#define COMBO_ONLY_FROM_LAYER _COLEMAK
-
-#define COLEMAK DF(_COLEMAK)
-#define QWERTY  DF(_QWERTY)
 
 #define CMDLBRC  LCMD(KC_LBRC)
 #define CMDRBRC  LCMD(KC_RBRC)
@@ -31,12 +21,6 @@ enum layers {
 //  '-----------------------'    '-----------------------'
 #define ______________MOD_L2_L____________  KC_LOPT, KC_LCTL, KC_LCMD, KC_LSFT
 #define ______________MOD_L2_R____________  KC_RSFT, KC_RCMD, KC_RCTL, KC_ROPT
-
-// ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
-// | F1  | F2  | F3  | F4  | F5  |   | F6  | F7  | F8  | F9  | F10 |
-// ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
-#define ________________FUNCTION_L_________________  KC_F1, KC_F2, KC_F3, KC_F4, KC_F5
-#define ________________FUNCTION_R_________________  KC_F6, KC_F7, KC_F8, KC_F9, KC_F10
 
 // -- Thumb keys ---------------------------------------------------------------
 //                   .-----------------.   .-----------------.
@@ -66,13 +50,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_Q      , KC_W      , KC_F      , KC_P      , KC_B,  KC_J    , KC_L      , KC_U      , KC_Y      , KC_QUOT,
     FL5(KC_A) , FL4(KC_R) , FL3(KC_S) , FL2(KC_T) , KC_G,  KC_M    , FR2(KC_N) , FR3(KC_E) , FR4(KC_I) , FR5(KC_O),
     KC_Z      , KC_X      , KC_C      , KC_D      , KC_V,  KC_K    , KC_H      , KC_COMM   , KC_DOT    , KC_SLSH,
-                                  _________THUMB_L_________,    _________THUMB_R_________
-  ),
-
-  [_QWERTY] = LAYOUT_wrapper(
-    KC_Q      , KC_W      , KC_E      , KC_R      , KC_T,       KC_Y      , KC_U      , KC_I      , KC_O      , KC_P,
-    FL5(KC_A) , FL4(KC_S) , FL3(KC_D) , FL2(KC_F) , KC_G,       KC_H      , FR2(KC_J) , FR3(KC_K) , FR4(KC_L) , FR5(KC_QUOT),
-    KC_Z      , KC_X      , KC_C      , KC_V      , KC_B,       KC_N      , KC_M      , KC_COMM   , KC_DOT    , KC_SLSH,
                                   _________THUMB_L_________,    _________THUMB_R_________
   ),
 
@@ -118,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_ADJUST] = LAYOUT_wrapper(
-    RESET  , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, QWERTY , COLEMAK, XXXXXXX, RESET  ,
+    RESET  , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET  ,
     RGB_TOG, RGB_SAI, RGB_HUI, RGB_VAI, RGB_MOD,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, RGB_SAD, RGB_HUD, RGB_VAD, RGB_RMOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                       _______, _______, _______,  _______, _______, _______

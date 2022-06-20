@@ -1,25 +1,8 @@
-/*
- * Copyright 2021 Quentin LEBASTARD <qlebastard@gmail.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 #include QMK_KEYBOARD_H
+#include "trekdemo.h"
 
 enum layers {
   _COLEMAK = 0,
-  _QWERTY,
   _LWR,
   _RAISE,
   _ADJUST,
@@ -27,15 +10,11 @@ enum layers {
   _MOUSE
 };
 
-#define COMBO_ONLY_FROM_LAYER _COLEMAK
+layer_state_t layer_state_set_user(layer_state_t state) {
+  layer_state_t new_state = update_tri_layer_state(state, _LWR, _RAISE, _ADJUST);
 
-#define COLEMAK DF(_COLEMAK)
-#define QWERTY  DF(_QWERTY)
-
-#define CMDLBRC  LCMD(KC_LBRC)
-#define CMDRBRC  LCMD(KC_RBRC)
-#define CMDLCBR  LCMD(KC_LCBR)
-#define CMDRCBR  LCMD(KC_RCBR)
+  return new_state;
+}
 
 // == Home-row Mod helpers =====================================================
 //  .-----------------------.    .-----------------------.
@@ -44,11 +23,6 @@ enum layers {
 #define ______________MOD_L2_L____________  KC_LOPT, KC_LCTL, KC_LCMD, KC_LSFT
 #define ______________MOD_L2_R____________  KC_RSFT, KC_RCMD, KC_RCTL, KC_ROPT
 
-// ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
-// | F1  | F2  | F3  | F4  | F5  |   | F6  | F7  | F8  | F9  | F10 |
-// ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
-#define ________________FUNCTION_L_________________  KC_F1, KC_F2, KC_F3, KC_F4, KC_F5
-#define ________________FUNCTION_R_________________  KC_F6, KC_F7, KC_F8, KC_F9, KC_F10
 
 // -- Thumb keys ---------------------------------------------------------------
 //                   .-----------------.   .-----------------.
@@ -81,12 +55,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   _________THUMB_L_________,    _________THUMB_R_________
   ),
 
-  [_QWERTY] = LAYOUT_wrapper(
-    KC_Q      , KC_W      , KC_E      , KC_R      , KC_T,       KC_Y      , KC_U      , KC_I      , KC_O      , KC_P,
-    FL5(KC_A) , FL4(KC_S) , FL3(KC_D) , FL2(KC_F) , KC_G,       KC_H      , FR2(KC_J) , FR3(KC_K) , FR4(KC_L) , FR5(KC_QUOT),
-    KC_Z      , KC_X      , KC_C      , KC_V      , KC_B,       KC_N      , KC_M      , KC_COMM   , KC_DOT    , KC_SLSH,
-                                  _________THUMB_L_________,    _________THUMB_R_________
-  ),
 
   [_NUM] = LAYOUT_wrapper(
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   KC_PERC, KC_7   , KC_8   , KC_9   , KC_EQL ,
@@ -130,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_ADJUST] = LAYOUT_wrapper(
-    RESET  , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, QWERTY , COLEMAK, XXXXXXX, RESET  ,
+    RESET  , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET  ,
     RGB_TOG, RGB_SAI, RGB_HUI, RGB_VAI, RGB_MOD,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, RGB_SAD, RGB_HUD, RGB_VAD, RGB_RMOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                       _______, _______, _______,  _______, _______, _______
