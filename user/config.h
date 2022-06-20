@@ -9,6 +9,8 @@
 #undef PERMISSIVE_HOLD
 #define TAPPING_FORCE_HOLD
 
+#define COMBO_COUNT 4
+
 // Mouse key speed and acceleration.
 #undef MOUSEKEY_DELAY
 #define MOUSEKEY_DELAY          0
@@ -20,12 +22,3 @@
 #define MOUSEKEY_MAX_SPEED      6
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX    64
-
-#ifdef RGBLIGHT_ENABLE
-  #define RGBLIGHT_ANIMATIONS
-  #define RGBLIGHT_HUE_STEP 8
-  #define RGBLIGHT_SAT_STEP 8
-  #define RGBLIGHT_VAL_STEP 8
-  // https://docs.qmk.fm/#/feature_rgblight?id=lighting-layers
-  #define RGBLIGHT_LAYERS
-#endif
