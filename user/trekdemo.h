@@ -14,15 +14,6 @@
 #define CMDLCBR  LCMD(KC_LCBR)
 #define CMDRCBR  LCMD(KC_RCBR)
 
-enum layers {
-  _COLEMAK = 0,
-  _LWR,
-  _RAISE,
-  _ADJUST,
-  _NUM,
-  _MOUSE
-};
-
 // == Home-row Mod helpers =====================================================
 //  .-----------------------.    .-----------------------.
 //  | Alt | Ctl | Cmd | Sft |    | Sft | Cmd | Ctl | Alt |
@@ -32,10 +23,10 @@ enum layers {
 
 
 // -- Thumb keys ---------------------------------------------------------------
-//                   .-----------------.   .-----------------.
-//                   | NUM | NAV | MOU |   |     | RSA | Hyp |
-//                   | Esc | Bsp | Tab |   | Ent | Spc |     |
-//                   '-----------------'   '-----------------'
+// .-----------------.   .-----------------.
+// | NUM | NAV | MOU |   |     | RSA | Hyp |
+// | Esc | Bsp | Tab |   | Ent | Spc |     |
+// '-----------------'   '-----------------'
 #define _________THUMB_L_________ LT(_NUM, KC_ESC), LT(_LWR, KC_BSPC) , LT(_MOUSE, KC_TAB)
 #define _________THUMB_R_________          KC_ENT , LT(_RAISE, KC_SPC), KC_HYPR
 
