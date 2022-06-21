@@ -2,7 +2,7 @@
 #include "trekdemo.h"
 
 // Allow the expansion of defined values
-#define LAYOUT_wrapper(...) LAYOUT_split_3x5_3_atreus(__VA_ARGS__)
+#define LAYOUT_wrapper(...) LAYOUT_split_3x5_3(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
