@@ -1,35 +1,32 @@
 USER = trekdemo
 KEYBOARDS = atreus skeletyl
 
-# keymap path
+# Keybard mapping
 PATH_atreus = keyboardio/atreus
-MAKE_atreus = keyboardio/atreus:$(USER)
+MAKE_atreus = keyboardio/atreus
 PATH_skeletyl = bastardkb/skeletyl
-MAKE_skeletyl = bastardkb/skeletyl/v1/elitec:$(USER)
+MAKE_skeletyl = bastardkb/skeletyl/v1/elitec
 
 all: $(KEYBOARDS)
 
+CMD = "compile"
 .PHONY: $(KEYBOARDS)
 $(KEYBOARDS):
-	# init submodule
-	git submodule update --init --recursive
-
-	# cleanup old symlinks
+	# Remove old keymaps
 	rm -rf qmk_firmware/keyboards/$(PATH_$@)/keymaps/$(USER)
 	rm -rf qmk_firmware/users/$(USER)
 
-	# Add new symlinks
+	# Init submodule
+	git submodule update --init --recursive
+
+	# Create symlinks
 	ln -s $(shell pwd)/user qmk_firmware/users/$(USER)
 	ln -s $(shell pwd)/$@ qmk_firmware/keyboards/$(PATH_$@)/keymaps/$(USER)
 
-	# Run lint check
-	cd qmk_firmware; qmk lint -km $(USER) -kb $(PATH_$@) --strict
-
-	# Run build
-	make BUILD_DIR=$(shell pwd)/build \
-		--jobs=1 \
-		--directory=qmk_firmware \
-		$(MAKE_$@)
+	# Run lint and compile/flash/...
+	cd qmk_firmware; \
+		qmk lint --strict --keymap $(USER) --keyboard $(MAKE_$@) && \
+		qmk $(CMD) --parallel 1 --keymap $(USER) --keyboard $(MAKE_$@)
 
 	# Cleanup symlinks
 	rm -rf qmk_firmware/keyboards/$(PATH_$@)/keymaps/$(USER)
