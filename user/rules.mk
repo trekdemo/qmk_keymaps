@@ -13,8 +13,8 @@ COMBO_ENABLE = yes
 LTO_ENABLE = yes
 
 # Additional files
-SRC += trekdemo.c
 SRC += combos.c
+INTROSPECTION_KEYMAP_C = trekdemo.c
 
 # # You can define RGB_ENABLE in your keymap’s rules.mk and then check for the
 # # variable in your userspace’s rules.mk
