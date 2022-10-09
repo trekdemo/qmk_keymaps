@@ -1,11 +1,13 @@
 USER = trekdemo
-KEYBOARDS = atreus skeletyl
+KEYBOARDS = atreus skeletyl dilemma
 
 # Keybard mapping
 PATH_atreus = keyboardio/atreus
 MAKE_atreus = keyboardio/atreus
 PATH_skeletyl = bastardkb/skeletyl
 MAKE_skeletyl = bastardkb/skeletyl/v1/elitec
+PATH_dilemma = bastardkb/dilemma
+MAKE_dilemma = bastardkb/dilemma/splinky
 
 all: $(KEYBOARDS)
 
