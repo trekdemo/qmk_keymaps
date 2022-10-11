@@ -57,13 +57,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       _______, _______, _______,   _______, _______, _______
   ),
 
-  [_MOUSE] = LAYOUT_split_3x5_3(
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, XXXXXXX,
-                      _______, _______, _______,   KC_BTN3, KC_BTN1, KC_BTN2
-  ),
-
   [_SYM] = LAYOUT_split_3x5_3(
     XXXXXXX, XXXXXXX, XXXXXXX, KC_BSLS, KC_TILD,   KC_AMPR, KC_LPRN, KC_RPRN, KC_PERC, KC_EQL ,
     KC_EXLM, KC_AT  , KC_UNDS, KC_COLN, KC_DLR ,   KC_PIPE, KC_LBRC, KC_RBRC, KC_PLUS, KC_MINS,
@@ -76,5 +69,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RGB_TOG, RGB_SAI, RGB_HUI, RGB_VAI, RGB_MOD,   XXXXXXX, KC_F4  , KC_F5  , KC_F6  , KC_F11 ,
     XXXXXXX, RGB_SAD, RGB_HUD, RGB_VAD, RGB_RMOD,  XXXXXXX, KC_F1  , KC_F2  , KC_F3  , KC_F12 ,
                       _______, _______, _______,   _______, _______, _______
+  ),
+
+  [_MOUSE] = LAYOUT_split_3x5_3(
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, XXXXXXX,
+    _______, _______, _______,   KC_BTN3, KC_BTN1, KC_BTN2
   )
 };
