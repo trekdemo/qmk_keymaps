@@ -25,7 +25,7 @@
 #define TAPPING_FORCE_HOLD
 
 // https://docs.qmk.fm/#/feature_combo
-#define COMBO_COUNT 4
+#define COMBO_COUNT 5
 
 // Mouse key speed and acceleration.
 #undef MOUSEKEY_DELAY
