@@ -16,10 +16,10 @@
   {   k00,   k01,   k02,   k03,   k04 },                \
   {   k10,   k11,   k12,   k13,   k14 },                \
   {   k20,   k21,   k22,   k23,   k24 },                \
-  {   k31, KC_NO,   k32, KC_NO, KC_NO },                \
+  {   k30, KC_NO,   k31, KC_NO, KC_NO },                \
   {   k40,   k41,   k42,   k43,   k44 },                \
   {   k50,   k51,   k52,   k53,   k54 },                \
   {   k60,   k61,   k62,   k63,   k64 },                \
-  {   k71, KC_NO,   k72, KC_NO, KC_NO },                \
+  {   k70, KC_NO,   k71, KC_NO, KC_NO },                \
 }
 // clang-format on

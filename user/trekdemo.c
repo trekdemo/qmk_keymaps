@@ -27,20 +27,20 @@ layer_state_t layer_state_set_user (layer_state_t state) {
 
 // -- Thumb keys ---------------------------------------------------------------
 // .-----------------.   .-----------------.
-// | MOU | EXT | NUM |   |     | SYM | Hyp |
+// | NUM | EXT | MOU |   |     | SYM | Hyp |
 // | Esc | Bsp | Tab |   | Ent | Spc |     |
 // '-----------------'   '-----------------'
-//       .-----------.   .-----------.
-//       | EXT | NUM |   |     | SYM |
-//       | Bsp | Tab |   | Ent | Spc |
-//       '-----------'   '-----------'
+// .-----------.               .-----------.
+// | NUM | EXT |               | SYM | Hyp |
+// | Esc | Bsp |               | Spc |     |
+// '-----------'               '-----------'
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_COLEMAK] = LAYOUT_split_3x5_3(
     KC_Q   , KC_W   , KC_F   , KC_P   , KC_B   ,   KC_J   , KC_L   , KC_U   , KC_Y   , KC_QUOT,
     LALT__A, LCTRL_R, LCMD__S, LSHFT_T, KC_G   ,   KC_M   , RSHFT_N, RCMD__E, RCTRL_I, RALT__O,
     KC_Z   , KC_X   , KC_C   , KC_D   , KC_V   ,   KC_K   , KC_H   , KC_COMM, KC_DOT , KC_SLSH,
-    LT(_MOUSE, KC_ESC), LT(_EXT, KC_BSPC) , LT(_NUM, KC_TAB),   KC_ENT , LT(_SYM, KC_SPC), KC_HYPR
+    LT(_NUM, KC_ESC), LT(_EXT, KC_BSPC) , LT(_MOUSE, KC_TAB),   KC_ENT , LT(_SYM, KC_SPC), KC_HYPR
   ),
 
   [_NUM] = LAYOUT_split_3x5_3(
