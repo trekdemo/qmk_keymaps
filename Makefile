@@ -7,7 +7,7 @@ MAKE_atreus = keyboardio/atreus
 PATH_skeletyl = bastardkb/skeletyl
 MAKE_skeletyl = bastardkb/skeletyl/v1/elitec
 PATH_dilemma = bastardkb/dilemma
-MAKE_dilemma = bastardkb/dilemma/splinky
+MAKE_dilemma = bastardkb/dilemma
 
 all: $(KEYBOARDS)
 
