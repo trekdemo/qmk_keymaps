@@ -13,7 +13,7 @@
 #define CMDLCBR  LCMD(KC_LCBR)
 #define CMDRCBR  LCMD(KC_RCBR)
 
-// These are helpers to define home-row mods
+// These are helpers to define home-row mods for Colemak
 #define LALT__A LALT_T(KC_A)
 #define LCTRL_R LCTL_T(KC_R)
 #define LCMD__S LCMD_T(KC_S)
@@ -23,5 +23,16 @@
 #define RCMD__E RCMD_T(KC_E)
 #define RCTRL_I RCTL_T(KC_I)
 #define RALT__O RALT_T(KC_O)
+
+// These are helpers to define home-row mods for QWERTY
+// #define LALT__A LALT_T(KC_A)
+#define LCTRL_S LCTL_T(KC_S)
+#define LCMD__D LCMD_T(KC_D)
+#define LSHFT_F LSFT_T(KC_F)
+
+#define RSHFT_J RSFT_T(KC_J)
+#define RCMD__K RCMD_T(KC_K)
+#define RCTRL_L RCTL_T(KC_L)
+#define RALT__Q RALT_T(KC_QUOT)
 
 #endif

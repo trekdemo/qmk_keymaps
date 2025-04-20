@@ -3,12 +3,18 @@
 
 enum layers {
   _COLEMAK = 0,
+  _QWERTY,
   _EXT,
   _SYM,
   _ADJUST,
   _NUM,
   _MOUSE
 };
+
+#define COMBO_ONLY_FROM_LAYER _COLEMAK
+
+#define COLEMAK DF(_COLEMAK)
+#define QWERTY  DF(_QWERTY)
 
 // ==[ Switch to Adjust ]======================================================
 __attribute__ ((weak))
@@ -43,6 +49,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT(_NUM, KC_ESC), LT(_EXT, KC_BSPC) , LT(_MOUSE, KC_TAB),   KC_ENT , LT(_SYM, KC_SPC), KC_HYPR
   ),
 
+  [_QWERTY] = LAYOUT_split_3x5_3(
+    KC_Q      , KC_W      , KC_E      , KC_R      , KC_T,       KC_Y      , KC_U      , KC_I      , KC_O      , KC_P,
+    LALT__A   , LCTRL_S   , LCMD__D   , LSHFT_F   , KC_G,       KC_H      , RSHFT_J   , RCMD__K   , RCTRL_L   , RALT__Q,
+    KC_Z      , KC_X      , KC_C      , KC_V      , KC_B,       KC_N      , KC_M      , KC_COMM   , KC_DOT    , KC_SLSH,
+    LT(_NUM, KC_ESC), LT(_EXT, KC_BSPC) , LT(_MOUSE, KC_TAB),   KC_ENT , LT(_SYM, KC_SPC), KC_HYPR
+  ),
+
   [_NUM] = LAYOUT_split_3x5_3(
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   KC_PERC, KC_7   , KC_8   , KC_9   , KC_EQL ,
     KC_LOPT, KC_LCTL, KC_LCMD, KC_LSFT, XXXXXXX,   KC_PLUS, KC_4   , KC_5   , KC_6   , KC_MINS,
@@ -65,8 +78,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_ADJUST] = LAYOUT_split_3x5_3(
-    QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, KC_F7  , KC_F8  , KC_F9  , KC_F10 ,
-    RGB_TOG, RGB_SAI, RGB_HUI, RGB_VAI, RGB_MOD,   XXXXXXX, KC_F4  , KC_F5  , KC_F6  , KC_F11 ,
+    QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   QWERTY , KC_F7  , KC_F8  , KC_F9  , KC_F10 ,
+    RGB_TOG, RGB_SAI, RGB_HUI, RGB_VAI, RGB_MOD,   COLEMAK, KC_F4  , KC_F5  , KC_F6  , KC_F11 ,
     XXXXXXX, RGB_SAD, RGB_HUD, RGB_VAD, RGB_RMOD,  XXXXXXX, KC_F1  , KC_F2  , KC_F3  , KC_F12 ,
                       _______, _______, _______,   _______, _______, _______
   ),
